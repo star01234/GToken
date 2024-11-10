@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ethers } from "ethers";  // Make sure this import is on top
+import { ethers } from "ethers";  
 import useWeb3 from "../hooks/useWeb3";
 const { isAddress, parseUnits } = ethers.utils;
 
@@ -23,12 +23,10 @@ const RequestTokens = () => {
       setStatus("Error: Amount must be greater than zero.");
       return;
     }
-
-    // Proceed with the token request
     if (contract) {
       try {
         setStatus("Processing...");
-        const amountInUnits = parseUnits(amount.toString(), 18); // Convert to correct token units
+        const amountInUnits = parseUnits(amount.toString(), 18); 
         const tx = await contract.requestTokens(recipient, amountInUnits);
         await tx.wait();
         setStatus("Tokens transferred successfully!");
