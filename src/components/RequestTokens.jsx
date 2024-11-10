@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";  // Make sure this import is on top
-const { isAddress, parseUnits } = ethers.utils;
-
 import useWeb3 from "../hooks/useWeb3";
+const { isAddress, parseUnits } = ethers.utils;
 
 const RequestTokens = () => {
   const { contract } = useWeb3();
